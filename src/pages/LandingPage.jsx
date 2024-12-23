@@ -7,7 +7,10 @@ import {
 } from "@/components/ui/carousel";
 import { Link } from "react-router-dom";
 import companies from "../data/companies";
+import faq from "../data/faq";
 import Autoplay from "embla-carousel-autoplay";
+import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
+import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
 
 const LandingPage = () => {
   return (
@@ -60,6 +63,34 @@ const LandingPage = () => {
           ))}
         </CarouselContent>
       </Carousel>
+      <img src="/banner.jpeg" className="w-full" />
+
+      <section className="grid grid-cols-1 md:grid-cols-2 gap-4">
+        <Card>
+          <CardHeader>
+            <CardTitle className="font-bold">For Job Seekers</CardTitle>
+          </CardHeader>
+          <CardContent>
+            Search and apply for jobs, track applications, and more.
+          </CardContent>
+        </Card>
+        <Card>
+          <CardHeader>
+            <CardTitle className="font-bold">For Employers</CardTitle>
+          </CardHeader>
+          <CardContent>
+            Post jobs, manage applications, and find the best candidates.
+          </CardContent>
+        </Card>
+      </section>
+      <Accordion type="multiple" className="w-full bg-black p-10 rounded-2xl border">
+        {faq.map((faq, index) => (
+          <AccordionItem key={index} value={`item-${index + 1}`}>
+            <AccordionTrigger>{faq.question}</AccordionTrigger>
+            <AccordionContent>{faq.answer}</AccordionContent>
+          </AccordionItem>
+        ))}
+      </Accordion>
     </main>
   );
 };
