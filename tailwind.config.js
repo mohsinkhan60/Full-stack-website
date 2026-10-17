@@ -1,5 +1,3 @@
-
-
 /* eslint-disable no-undef */
 /* eslint-disable no-mixed-spaces-and-tabs */
 /** @type {import('tailwindcss').Config} */
